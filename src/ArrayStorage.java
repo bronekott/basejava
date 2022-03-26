@@ -19,7 +19,6 @@ public class ArrayStorage {
     }
 
     Resume get(String uuid) {
-        //Resume r = new Resume();
         for (int i = 0; i < size; i++) {
             if (storage[i].toString() == uuid) {
                 return storage[i];
@@ -47,7 +46,6 @@ public class ArrayStorage {
         for (int i = 0; i < size; i++) {
             resumes[i] = storage[i];
         }
-        //resumes = Arrays.stream(storage).filter(s -> Objects.nonNull(s)).toArray(Resume[]::new);
         return resumes;
     }
 
