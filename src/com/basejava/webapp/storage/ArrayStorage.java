@@ -17,11 +17,12 @@ public class ArrayStorage {
     }
 
     public void update(Resume resume) {
-        if (get(resume.getUuid()) != null) {
-            storage[findIndex(resume.getUuid())] = resume;
-            System.out.println("Resume with uuid: " + resume.getUuid() + " have been updated");
-        } else {
+        int index = findIndex(resume.getUuid());
+        if (index == -1) {
             System.out.println("ERROR: resume not found");
+        } else {
+            storage[index] = resume;
+            System.out.println("Resume with uuid: " + resume.getUuid() + " have been updated");
         }
     }
 
