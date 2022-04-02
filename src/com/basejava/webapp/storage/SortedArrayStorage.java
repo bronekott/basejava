@@ -8,8 +8,7 @@ public class SortedArrayStorage extends AbstractArrayStorage {
 
     @Override
     protected int findIndex(String uuid) {
-        Resume searchKey = new Resume();
-        searchKey.setUuid(uuid);
+        Resume searchKey = new Resume(uuid);
         return Arrays.binarySearch(storage, 0, size, searchKey);// returns an index of searched element, or "an index for insertion-1" in sorted array
     }
 
