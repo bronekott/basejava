@@ -73,4 +73,3 @@ public abstract class AbstractArrayStorage implements Storage {
     protected abstract void insertElement(int index, Resume resume);
 
 }
-
