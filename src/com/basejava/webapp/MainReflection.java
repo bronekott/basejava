@@ -17,6 +17,6 @@ public class MainReflection {
         System.out.println(r);
 
         Method method = r.getClass().getDeclaredMethod("toString");
-        System.out.println(method.invoke(r, null));
+        System.out.println(method.invoke(r));
     }
 }
