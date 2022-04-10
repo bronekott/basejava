@@ -36,12 +36,12 @@ public class ListStorage extends AbstractStorage{
 
     @Override
     public Resume[] getAll() {
-        return new Resume[0];
+        return (Resume[]) storage.toArray();
     }
 
     @Override
     public int size() {
-        return 0;
+        return storage.size();
     }
     @Override
     protected int findIndex(String uuid) {

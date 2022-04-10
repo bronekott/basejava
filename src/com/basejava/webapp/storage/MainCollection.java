@@ -51,5 +51,9 @@ public class MainCollection {
         }
 
         System.out.println(map.toString());
+
+        System.out.println(collection.size());
+
+        System.out.println(collection.toArray());
     }
 }
