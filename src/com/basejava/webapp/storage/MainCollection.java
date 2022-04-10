@@ -42,11 +42,11 @@ public class MainCollection {
         map.put(UUID_2, RESUME_2);
         map.put(UUID_3, RESUME_3);
 
-        for(String uuid: map.keySet()){
+        for (String uuid : map.keySet()) {
             System.out.println(map.get(uuid).hashCode());
         }
 
-        for(Map.Entry<String,Resume> entry:map.entrySet()){
+        for (Map.Entry<String, Resume> entry : map.entrySet()) {
             System.out.println(entry.getValue());
         }
 
@@ -55,5 +55,10 @@ public class MainCollection {
         System.out.println(collection.size());
 
         System.out.println(collection.toArray());
+        collection.removeAll(collection);
+
+        for (Resume r : collection) {
+            System.out.println("r");
+        }
     }
 }
