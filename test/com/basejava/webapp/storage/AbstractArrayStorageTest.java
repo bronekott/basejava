@@ -22,7 +22,7 @@ public abstract class AbstractArrayStorageTest {
     private static final Resume RESUME_3 = new Resume(UUID_3);
     private static final Resume RESUME_4 = new Resume(UUID_4);
 
-    private Resume[] standardResumeArray  = new Resume[]{RESUME_1, RESUME_2, RESUME_3};
+    private Resume[] expectedResumes = new Resume[]{RESUME_1, RESUME_2, RESUME_3};
 
     public AbstractArrayStorageTest(Storage storage) {
         this.storage = storage;
@@ -93,7 +93,7 @@ public abstract class AbstractArrayStorageTest {
     @Test
     public void getAll() {
         Resume[] resumesArray = storage.getAll();
-        assertArrayEquals(standardResumeArray, resumesArray);
+        assertArrayEquals(expectedResumes, resumesArray);
     }
 
     @Test
