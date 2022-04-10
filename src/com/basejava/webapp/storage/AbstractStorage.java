@@ -7,9 +7,13 @@ import com.basejava.webapp.model.Resume;
 public abstract class AbstractStorage implements Storage {
 
     protected abstract int findIndex(String uuid);
+
     protected abstract void updateResume(int index, Resume resume);
+
     protected abstract void saveResume(Resume resume);
+
     protected abstract Resume getResume(int index);
+
     protected abstract void deleteResume(int index);
 
     @Override
