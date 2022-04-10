@@ -1,51 +1,48 @@
 package com.basejava.webapp.storage;
 
+import com.basejava.webapp.exception.ExistStorageException;
 import com.basejava.webapp.exception.NotExistStorageException;
 import com.basejava.webapp.model.Resume;
 
 public abstract class AbstractStorage implements Storage {
 
     protected abstract int findIndex(String uuid);
-    protected abstract void updateAction(int index, Resume resume);
-    protected abstract void saveAction(Resume resume);
-
-    @Override
-    public void clear() {
-    }
+    protected abstract void updateResume(int index, Resume resume);
+    protected abstract void saveResume(Resume resume);
+    protected abstract Resume getResume(int index);
+    protected abstract void deleteResume(int index);
 
     @Override
     public void update(Resume resume) {
         int index = findIndex(resume.getUuid());
-        updateAction(index, resume);
+        updateResume(index, resume);
     }
 
     @Override
     public void save(Resume resume) {
         int index = findIndex(resume.getUuid());
         if (index >= 0) {
-            throw new NotExistStorageException(resume.getUuid());
+            throw new ExistStorageException(resume.getUuid());
         }
-        saveAction(resume);
+        saveResume(resume);
     }
 
     @Override
     public Resume get(String uuid) {
-        return null;
+        int index = findIndex(uuid);
+        if (index < 0) {
+            throw new NotExistStorageException(uuid);
+        }
+        return getResume(index);
     }
 
     @Override
     public void delete(String uuid) {
-
-    }
-
-    @Override
-    public Resume[] getAll() {
-        return new Resume[0];
-    }
-
-    @Override
-    public int size() {
-        return 0;
+        int index = findIndex(uuid);
+        if (index < 0) {
+            throw new NotExistStorageException(uuid);
+        }
+        deleteResume(index);
     }
 
 }

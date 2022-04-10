@@ -27,6 +27,7 @@ public abstract class AbstractArrayStorage extends AbstractStorage {
 
     }
 
+
     public void save(Resume resume) {
         int index = findIndex(resume.getUuid());
         if (STORAGE_LIMIT == size) {

@@ -50,6 +50,6 @@ public class MainCollection {
             System.out.println(entry.getValue());
         }
 
-
+        System.out.println(map.toString());
     }
 }
