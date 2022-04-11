@@ -38,15 +38,9 @@ public abstract class AbstractArrayStorage extends AbstractStorage {
         size++;
     }
 
-    public void delete(String uuid) {
-        int index = findIndex(uuid);
-        if (index < 0) {
-            throw new NotExistStorageException(uuid);
-        }
+    public void deleteResume(int index) {
         if (size - 1 - index >= 0) {
             System.arraycopy(storage, index + 1, storage, index, size - 1 - index);
-
-            System.out.println("Resume with uuid:" + uuid + " have been deleted");
             size--;
         }
     }
@@ -59,11 +53,7 @@ public abstract class AbstractArrayStorage extends AbstractStorage {
         return size;
     }
 
-    public Resume get(String uuid) {
-        int index = findIndex(uuid);
-        if (index < 0) {
-            throw new NotExistStorageException(uuid);
-        }
+    public Resume getResume(int index) {
         return storage[index];
     }
 
