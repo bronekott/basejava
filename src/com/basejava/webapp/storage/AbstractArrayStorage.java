@@ -17,8 +17,7 @@ public abstract class AbstractArrayStorage extends AbstractStorage {
         size = 0;
     }
 
-    public void update(Resume resume) {
-        int index = findIndex(resume.getUuid());
+    public void updateResume(int index, Resume resume) {
         if (index < 0) {
             throw new NotExistStorageException(resume.getUuid());
         }
@@ -27,7 +26,7 @@ public abstract class AbstractArrayStorage extends AbstractStorage {
 
     }
 
-    public void save(Resume resume) {
+    public void saveResume(Resume resume) {
         int index = findIndex(resume.getUuid());
         if (STORAGE_LIMIT == size) {
             throw new StorageException("ERROR: storage is full", resume.getUuid());
@@ -67,8 +66,6 @@ public abstract class AbstractArrayStorage extends AbstractStorage {
         }
         return storage[index];
     }
-
-    protected abstract int findIndex(String uuid);
 
     protected abstract void insertElement(int index, Resume resume);
 
