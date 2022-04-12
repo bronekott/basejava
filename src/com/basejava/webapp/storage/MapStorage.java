@@ -5,7 +5,7 @@ import com.basejava.webapp.model.Resume;
 import java.util.*;
 
 public class MapStorage extends AbstractStorage {
-    private final Map<Integer, Resume> storage = new HashMap<Integer, Resume>();
+    private final Map<Integer, Resume> storage = new HashMap<>();
 
     @Override
     protected int findIndex(String uuid) {
