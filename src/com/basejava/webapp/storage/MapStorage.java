@@ -11,7 +11,7 @@ public class MapStorage extends AbstractStorage {
     protected int findIndex(String uuid) {
         int index = -1;
         for (Map.Entry<Integer, Resume> entry : storage.entrySet()) {
-            if(entry.getValue().equals(uuid)){
+            if (entry.getValue().equals(uuid)) {
                 index = entry.getKey();
             }
         }
@@ -20,12 +20,12 @@ public class MapStorage extends AbstractStorage {
 
     @Override
     protected void updateResume(int index, Resume resume) {
-
+        storage.replace(index, resume);
     }
 
     @Override
     protected void saveResume(int index, Resume resume) {
-
+        storage.put(index, resume);
     }
 
     @Override
@@ -35,7 +35,7 @@ public class MapStorage extends AbstractStorage {
 
     @Override
     protected void deleteResume(int index) {
-
+        storage.remove(index);
     }
 
     @Override
@@ -48,8 +48,8 @@ public class MapStorage extends AbstractStorage {
         return (Resume[]) storage.values().toArray();
     }
 
-        @Override
-        public int size () {
-            return storage.size();
-        }
+    @Override
+    public int size() {
+        return storage.size();
     }
+}
