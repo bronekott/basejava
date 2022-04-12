@@ -5,16 +5,16 @@ import com.basejava.webapp.model.Resume;
 import java.util.*;
 
 public class MapStorage extends AbstractStorage {
-    private final Map<String, Resume> storage = new HashMap<String, Resume>();
+    private final Map<Integer, Resume> storage = new HashMap<Integer, Resume>();
 
     @Override
     protected int findIndex(String uuid) {
         int index = -1;
-//        for (Map.Entry<String, Resume> entry : storage.entrySet()) {
-//            if(entry.getKey().equals(uuid)){
-//                index = entry.getValue();
-//            }
-//        }
+        for (Map.Entry<Integer, Resume> entry : storage.entrySet()) {
+            if(entry.getValue().equals(uuid)){
+                index = entry.getKey();
+            }
+        }
         return index;
     }
 
