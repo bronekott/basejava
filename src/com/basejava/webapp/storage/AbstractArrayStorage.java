@@ -1,6 +1,5 @@
 package com.basejava.webapp.storage;
 
-import com.basejava.webapp.exception.ExistStorageException;
 import com.basejava.webapp.exception.NotExistStorageException;
 import com.basejava.webapp.exception.StorageException;
 import com.basejava.webapp.model.Resume;
@@ -26,13 +25,9 @@ public abstract class AbstractArrayStorage extends AbstractStorage {
 
     }
 
-    public void saveResume(Resume resume) {
-        int index = findIndex(resume.getUuid());
+    public void saveResume(int index, Resume resume) {
         if (STORAGE_LIMIT == size) {
             throw new StorageException("ERROR: storage is full", resume.getUuid());
-        }
-        if (index >= 0) {
-            throw new ExistStorageException(resume.getUuid());
         }
         insertElement(index, resume);
         size++;
