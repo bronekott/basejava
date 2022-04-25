@@ -1,6 +1,5 @@
 package com.basejava.webapp.storage;
 
-import com.basejava.webapp.exception.NotExistStorageException;
 import com.basejava.webapp.exception.StorageException;
 import com.basejava.webapp.model.Resume;
 
@@ -17,12 +16,7 @@ public abstract class AbstractArrayStorage extends AbstractStorage {
     }
 
     public void updateResume(int index, Resume resume) {
-        if (index < 0) {
-            throw new NotExistStorageException(resume.getUuid());
-        }
         storage[index] = resume;
-        System.out.println("Resume with uuid: " + resume.getUuid() + " have been updated");
-
     }
 
     public void saveResume(int index, Resume resume) {

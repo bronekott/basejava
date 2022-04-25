@@ -6,8 +6,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class ListStorage extends AbstractStorage {
-    private final List<Resume> storage = new ArrayList<Resume>();
-
+    private final List<Resume> storage = new ArrayList<>();
 
     @Override
     protected void updateResume(int index, Resume resume) {
@@ -15,7 +14,7 @@ public class ListStorage extends AbstractStorage {
     }
 
     @Override
-    protected void saveResume(int index,Resume resume) {
+    protected void saveResume(int index, Resume resume) {
         storage.add(resume);
     }
 
@@ -31,7 +30,7 @@ public class ListStorage extends AbstractStorage {
 
     @Override
     public void clear() {
-        storage.removeAll(storage);
+        storage.clear();
     }
 
     @Override
@@ -45,7 +44,7 @@ public class ListStorage extends AbstractStorage {
     }
 
     @Override
-    protected int findIndex(String uuid) {
+    protected int findSearchKey(String uuid) {
         for (int i = 0; i < storage.size(); i++) {
             if (storage.get(i).getUuid().equals(uuid)) {
                 return i;

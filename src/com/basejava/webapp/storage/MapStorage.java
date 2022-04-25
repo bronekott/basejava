@@ -8,7 +8,7 @@ public class MapStorage extends AbstractStorage {
     private final Map<Integer, Resume> storage = new HashMap<>();
 
     @Override
-    protected int findIndex(String uuid) {
+    protected int findSearchKey(String uuid) {
         int index = -1;
         for (Map.Entry<Integer, Resume> entry : storage.entrySet()) {
             if (entry.getValue().equals(uuid)) {

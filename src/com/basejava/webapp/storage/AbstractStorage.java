@@ -6,47 +6,50 @@ import com.basejava.webapp.model.Resume;
 
 public abstract class AbstractStorage implements Storage {
 
-    protected abstract int findIndex(String uuid);
+    protected abstract int findSearchKey(String uuid);
 
-    protected abstract void updateResume(int index, Resume resume);
+    protected abstract void updateResume(int searchKey, Resume resume);
 
-    protected abstract void saveResume(int index,Resume resume);
+    protected abstract void saveResume(int searchKey, Resume resume);
 
-    protected abstract Resume getResume(int index);
+    protected abstract Resume getResume(int searchKey);
 
-    protected abstract void deleteResume(int index);
+    protected abstract void deleteResume(int searchKey);
 
     @Override
     public void update(Resume resume) {
-        int index = findIndex(resume.getUuid());
-        updateResume(index, resume);
+        int searchKey = findSearchKey(resume.getUuid());
+        if (searchKey < 0) {
+            throw new NotExistStorageException(resume.getUuid());
+        }
+        updateResume(searchKey, resume);
     }
 
     @Override
     public void save(Resume resume) {
-        int index = findIndex(resume.getUuid());
-        if (index >= 0) {
+        int searchKey = findSearchKey(resume.getUuid());
+        if (searchKey >= 0) {
             throw new ExistStorageException(resume.getUuid());
         }
-        saveResume(index, resume);
+        saveResume(searchKey, resume);
     }
 
     @Override
     public Resume get(String uuid) {
-        int index = findIndex(uuid);
-        if (index < 0) {
+        int searchKey = findSearchKey(uuid);
+        if (searchKey < 0) {
             throw new NotExistStorageException(uuid);
         }
-        return getResume(index);
+        return getResume(searchKey);
     }
 
     @Override
     public void delete(String uuid) {
-        int index = findIndex(uuid);
-        if (index < 0) {
+        int searchKey = findSearchKey(uuid);
+        if (searchKey < 0) {
             throw new NotExistStorageException(uuid);
         }
-        deleteResume(index);
+        deleteResume(searchKey);
     }
 
 }
