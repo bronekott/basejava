@@ -5,36 +5,37 @@ import com.basejava.webapp.model.Resume;
 import java.util.*;
 
 public class MapStorage extends AbstractStorage {
-    private final Map<Integer, Resume> storage = new HashMap<>();
+    private final Map<String, Resume> storage = new HashMap<>();
 
     @Override
-    protected int findSearchKey(String uuid) {
-        int index = -1;
-        for (Map.Entry<Integer, Resume> entry : storage.entrySet()) {
-            if (entry.getValue().equals(uuid)) {
-                index = entry.getKey();
-            }
-        }
-        return index;
+    protected String findSearchKey(String uuid) {
+//        String index = -1;
+//        for (Map.Entry<Integer, Resume> entry : storage.entrySet()) {
+//            if (entry.getValue().equals(uuid)) {
+//                index = entry.getKey();
+//            }
+//        }
+        // если uuid и есть ключ, то зачм нам его искать?????????
+        return uuid;
     }
 
     @Override
-    protected void updateResume(int index, Resume resume) {
-        storage.replace(index, resume);
+    protected void updateResume(Object index, Resume resume) {
+        storage.replace((String) index, resume);
     }
 
     @Override
-    protected void saveResume(int index, Resume resume) {
-        storage.put(index, resume);
+    protected void saveResume(Object index, Resume resume) {
+        storage.put((String)index, resume);
     }
 
     @Override
-    protected Resume getResume(int index) {
+    protected Resume getResume(Object index) {
         return null;
     }
 
     @Override
-    protected void deleteResume(int index) {
+    protected void deleteResume(Object index) {
         storage.remove(index);
     }
 

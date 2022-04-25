@@ -9,22 +9,22 @@ public class ListStorage extends AbstractStorage {
     private final List<Resume> storage = new ArrayList<>();
 
     @Override
-    protected void updateResume(int index, Resume resume) {
-        storage.set(index, resume);
+    protected void updateResume(Object index, Resume resume) {
+        storage.set((int)index, resume);
     }
 
     @Override
-    protected void saveResume(int index, Resume resume) {
+    protected void saveResume(Object index, Resume resume) {
         storage.add(resume);
     }
 
     @Override
-    protected Resume getResume(int index) {
-        return storage.get(index);
+    protected Resume getResume(Object index) {
+        return storage.get((int)index);
     }
 
     @Override
-    protected void deleteResume(int index) {
+    protected void deleteResume(Object index) {
         storage.remove(index);
     }
 
@@ -44,13 +44,13 @@ public class ListStorage extends AbstractStorage {
     }
 
     @Override
-    protected int findSearchKey(String uuid) {
+    protected Integer findSearchKey(String uuid) {
         for (int i = 0; i < storage.size(); i++) {
             if (storage.get(i).getUuid().equals(uuid)) {
                 return i;
             }
         }
-        return -1;
+        return null;
 
     }
 }
