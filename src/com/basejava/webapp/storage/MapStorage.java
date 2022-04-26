@@ -9,14 +9,12 @@ public class MapStorage extends AbstractStorage {
 
     @Override
     protected String findSearchKey(String uuid) {
-//        String index = -1;
-//        for (Map.Entry<Integer, Resume> entry : storage.entrySet()) {
-//            if (entry.getValue().equals(uuid)) {
-//                index = entry.getKey();
-//            }
-//        }
-        // если uuid и есть ключ, то зачм нам его искать?????????
-        return uuid;
+        for (Map.Entry<String, Resume> entry : storage.entrySet()) {
+            if (entry.getValue().equals(uuid)) {
+                return entry.getKey();
+            }
+        }
+        return null;
     }
 
     @Override
