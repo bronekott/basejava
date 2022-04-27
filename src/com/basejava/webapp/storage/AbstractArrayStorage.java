@@ -16,20 +16,20 @@ public abstract class AbstractArrayStorage extends AbstractStorage {
     }
 
     public void updateResume(Object searchKey, Resume resume) {
-        storage[(Integer) searchKey] = resume;
+        storage[(int) searchKey] = resume;
     }
 
     public void saveResume(Object searchKey, Resume resume) {
         if (STORAGE_LIMIT == size) {
             throw new StorageException("ERROR: storage is full", resume.getUuid());
         }
-        insertElement((Integer) searchKey, resume);
+        insertElement((int) searchKey, resume);
         size++;
     }
 
     public void deleteResume(Object searchKey) {
-        if (size - 1 - (Integer) searchKey >= 0) {
-            System.arraycopy(storage, (Integer) searchKey + 1, storage, (Integer) searchKey, size - 1 - (Integer) searchKey);
+        if (size - 1 - (int) searchKey >= 0) {
+            System.arraycopy(storage, (int) searchKey + 1, storage, (int) searchKey, size - 1 - (int) searchKey);
             size--;
         }
     }
@@ -43,7 +43,7 @@ public abstract class AbstractArrayStorage extends AbstractStorage {
     }
 
     public Resume getResume(Object index) {
-        return storage[(Integer) index];
+        return storage[(int) index];
     }
 
     protected abstract void insertElement(int index, Resume resume);
