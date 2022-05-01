@@ -46,6 +46,11 @@ public abstract class AbstractArrayStorage extends AbstractStorage {
         return storage[(int) index];
     }
 
+    @Override
+    protected boolean isFound(Object searchKey) {
+        return (Integer) searchKey >= 0;
+    }
+
     protected abstract void insertElement(int index, Resume resume);
 
 }

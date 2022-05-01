@@ -29,6 +29,11 @@ public class ListStorage extends AbstractStorage {
     }
 
     @Override
+    protected boolean isFound(Object searchKey) {
+        return searchKey != null;
+    }
+
+    @Override
     public void clear() {
         storage.clear();
     }
