@@ -2,7 +2,6 @@ package com.basejava.webapp.storage;
 
 import com.basejava.webapp.exception.ExistStorageException;
 import com.basejava.webapp.exception.NotExistStorageException;
-import com.basejava.webapp.exception.StorageException;
 import com.basejava.webapp.model.Resume;
 import org.junit.Before;
 import org.junit.Test;
@@ -59,18 +58,6 @@ public abstract class AbstractStorageTest {
         storage.save(RESUME_4);
         assertEquals(4, storage.size());
         assertEquals(RESUME_4, storage.get(UUID_4));
-    }
-
-    @Test(expected = StorageException.class)
-    public void saveOverflow() throws Exception {
-        try {
-            for (int i = 4; i <= AbstractArrayStorage.STORAGE_LIMIT; i++) {
-                storage.save(new Resume());
-            }
-        } catch (StorageException e) {
-            fail("Overflow happened too soon - test failed.");
-        }
-        storage.save(new Resume());
     }
 
     @Test(expected = ExistStorageException.class)

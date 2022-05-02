@@ -9,32 +9,31 @@ public class MapStorage extends AbstractStorage {
 
     @Override
     protected String findSearchKey(String uuid) {
-        for (Map.Entry<String, Resume> entry : storage.entrySet()) {
-            if (entry.getValue().equals(uuid)) {
-                return entry.getKey();
-            }
+        if (storage.containsKey(uuid)) {
+            return uuid;
+        } else {
+            return null;
         }
+    }
+
+    @Override
+    protected void updateResume(Object key, Resume resume) {
+        storage.replace((String) key, resume);
+    }
+
+    @Override
+    protected void saveResume(Object key, Resume resume) {
+        storage.put((String) key, resume);
+    }
+
+    @Override
+    protected Resume getResume(Object key) {
         return null;
     }
 
     @Override
-    protected void updateResume(Object index, Resume resume) {
-        storage.replace((String) index, resume);
-    }
-
-    @Override
-    protected void saveResume(Object index, Resume resume) {
-        storage.put((String) index, resume);
-    }
-
-    @Override
-    protected Resume getResume(Object index) {
-        return null;
-    }
-
-    @Override
-    protected void deleteResume(Object index) {
-        storage.remove(index);
+    protected void deleteResume(Object key) {
+        storage.remove(key);
     }
 
     @Override
