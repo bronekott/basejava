@@ -9,12 +9,13 @@ public class MapStorage extends AbstractStorage {
 
     @Override
     protected String findSearchKey(String uuid) {
-        return (storage.containsKey(uuid)) ? uuid : null;
+       return (storage.containsKey(uuid)) ? uuid : null;
     }
 
     @Override
     protected void updateResume(Object key, Resume resume) {
-        storage.replace((String) key, resume);
+        storage.put((String) key, resume);
+        //storage.replace((String) key, resume);
     }
 
     @Override
@@ -24,7 +25,7 @@ public class MapStorage extends AbstractStorage {
 
     @Override
     protected Resume getResume(Object key) {
-        return storage.get(key);
+        return storage.get((String)key);
     }
 
     @Override
