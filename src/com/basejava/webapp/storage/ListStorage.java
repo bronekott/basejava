@@ -25,7 +25,7 @@ public class ListStorage extends AbstractStorage {
 
     @Override
     protected void deleteResume(Object index) {
-        storage.remove(index);
+        storage.remove((int)index);
     }
 
     @Override

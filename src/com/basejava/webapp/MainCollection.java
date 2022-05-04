@@ -27,14 +27,14 @@ public class MainCollection {
 //            }
 //        }
 
-        Iterator<Resume> iterator = collection.iterator();
-        while (iterator.hasNext()) {
-            Resume r = iterator.next();
-            System.out.println(r);
-            if (Objects.equals(r.getUuid(), UUID_1)) {
-                iterator.remove();
-            }
-        }
+//        Iterator<Resume> iterator = collection.iterator();
+//        while (iterator.hasNext()) {
+//            Resume r = iterator.next();
+//            System.out.println(r);
+//            if (Objects.equals(r.getUuid(), UUID_1)) {
+//                iterator.remove();
+//            }
+//        }
         System.out.println(collection.toString());
 
         Map<String, Resume> map = new HashMap<>();
