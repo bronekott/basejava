@@ -8,8 +8,9 @@ public class MapStorage extends AbstractStorage {
     private final Map<String, Resume> storage = new HashMap<>();
 
     @Override
-    protected String findSearchKey(String uuid) {
-       return (storage.containsKey(uuid)) ? uuid : null;
+    protected Object findSearchKey(String uuid) {
+        return uuid;
+        //return (storage.containsKey(uuid)) ? uuid : null;
     }
 
     @Override
@@ -24,7 +25,7 @@ public class MapStorage extends AbstractStorage {
 
     @Override
     protected Resume getResume(Object key) {
-        return storage.get((String)key);
+        return storage.get((String) key);
     }
 
     @Override
@@ -34,7 +35,7 @@ public class MapStorage extends AbstractStorage {
 
     @Override
     protected boolean isFound(Object searchKey) {
-        return searchKey != null;
+        return (storage.containsKey(searchKey));
     }
 
     @Override
