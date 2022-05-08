@@ -4,6 +4,10 @@ import com.basejava.webapp.exception.ExistStorageException;
 import com.basejava.webapp.exception.NotExistStorageException;
 import com.basejava.webapp.model.Resume;
 
+import java.util.Arrays;
+import java.util.Collections;
+import java.util.List;
+
 public abstract class AbstractStorage implements Storage {
 
     protected abstract Object findSearchKey(String uuid);
@@ -56,6 +60,14 @@ public abstract class AbstractStorage implements Storage {
             throw new ExistStorageException(uuid);
         }
         return searchKey;
+    }
+
+    @Override
+    public List<Resume> getAllSorted() {
+        // https://www.baeldung.com/java-sorting#sorting-a-list
+        List<Resume> list = Arrays.asList(getAll());
+        Collections.sort(list);
+        return list;
     }
 
 }
