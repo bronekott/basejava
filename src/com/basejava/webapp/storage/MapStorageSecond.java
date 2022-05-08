@@ -2,7 +2,12 @@ package com.basejava.webapp.storage;
 
 import com.basejava.webapp.model.Resume;
 
-public class MapStorageSecond extends AbstractStorage{
+import java.util.HashMap;
+import java.util.Map;
+
+public class MapStorageSecond extends AbstractStorage {
+
+    private final Map<String, Resume> storage = new HashMap<>();
     @Override
     protected Object findSearchKey(String uuid) {
         return null;
