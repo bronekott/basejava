@@ -6,11 +6,12 @@ import java.util.Arrays;
 import java.util.Comparator;
 
 public class SortedArrayStorage extends AbstractArrayStorage {
-    private static final Comparator<Resume> RESUME_COMPARATOR = new Comparator<Resume>(){
+    private static final Comparator<Resume> RESUME_COMPARATOR = new Comparator<Resume>() {
         public int compare(Resume o1, Resume o2) {
             return o1.getUuid().compareTo(o2.getUuid());
         }
     };
+
     @Override
     protected Object findSearchKey(String uuid) {
         Resume searchKey = new Resume(uuid, "testName");
