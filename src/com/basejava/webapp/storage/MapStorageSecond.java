@@ -8,8 +8,9 @@ import java.util.Map;
 public class MapStorageSecond extends AbstractStorage {
 
     private final Map<String, Resume> storage = new HashMap<>();
+
     @Override
-    protected Object findSearchKey(String uuid) {
+    protected Object findSearchKey(String fullName) {
         return null;
     }
 

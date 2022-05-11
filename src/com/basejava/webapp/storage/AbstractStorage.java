@@ -69,5 +69,4 @@ public abstract class AbstractStorage implements Storage {
         Collections.sort(list);
         return list;
     }
-
 }
