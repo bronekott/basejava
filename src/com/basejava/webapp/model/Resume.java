@@ -47,7 +47,7 @@ public class Resume implements Comparable<Resume> {
         boolean equalsUuid = uuid.equals(resume.uuid);
         boolean equalsFullName = fullName.equals(resume.fullName);
 
-        return equalsUuid && equalsFullName;
+        return equalsFullName && equalsUuid;
     }
 
     @Override
