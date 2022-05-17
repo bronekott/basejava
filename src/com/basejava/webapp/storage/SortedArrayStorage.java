@@ -13,7 +13,7 @@ public class SortedArrayStorage extends AbstractArrayStorage {
     };
 
     @Override
-    protected Object findSearchKey(String uuid) {
+    protected Integer findSearchKey(String uuid) {
         Resume searchKey = new Resume(uuid, "testName");
         return Arrays.binarySearch(storage, 0, size, searchKey, RESUME_COMPARATOR);// returns an index of searched element, or "an index for insertion-1" in sorted array
     }

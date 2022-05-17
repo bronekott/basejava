@@ -5,39 +5,39 @@ import com.basejava.webapp.model.Resume;
 import java.util.HashMap;
 import java.util.Map;
 
-public class MapStorageSecond extends AbstractStorage {
+public class MapStorageSecond extends AbstractStorage<Resume> {
 
     private final Map<String, Resume> storage = new HashMap<>();
 
     @Override
-    protected Object findSearchKey(String uuid) {
+    protected Resume findSearchKey(String uuid) {
         return storage.get(uuid);
     }
 
     @Override
-    protected void updateResume(Object searchKey, Resume resume) {
+    protected void updateResume(Resume searchKey, Resume resume) {
         storage.replace(resume.getUuid(), resume);
     }
 
     @Override
-    protected void saveResume(Object searchKey, Resume resume) {
+    protected void saveResume(Resume searchKey, Resume resume) {
         storage.put(resume.getUuid(), resume);
     }
 
     @Override
-    protected Resume getResume(Object resume) {
-        return (Resume) resume;
+    protected Resume getResume(Resume resume) {
+        return resume;
 
     }
 
     @Override
-    protected void deleteResume(Object resume) {
-        storage.remove(((Resume) resume).getUuid());
+    protected void deleteResume(Resume resume) {
+        storage.remove(resume.getUuid());
 
     }
 
     @Override
-    protected boolean isFound(Object resume) {
+    protected boolean isFound(Resume resume) {
         return resume != null;
     }
 

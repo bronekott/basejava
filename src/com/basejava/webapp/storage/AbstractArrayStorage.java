@@ -5,7 +5,7 @@ import com.basejava.webapp.model.Resume;
 
 import java.util.Arrays;
 
-public abstract class AbstractArrayStorage extends AbstractStorage {
+public abstract class AbstractArrayStorage extends AbstractStorage<Integer> {
     protected static final int STORAGE_LIMIT = 10000;
     protected Resume[] storage = new Resume[STORAGE_LIMIT];
     protected int size;
@@ -15,22 +15,21 @@ public abstract class AbstractArrayStorage extends AbstractStorage {
         size = 0;
     }
 
-    public void updateResume(Object index, Resume resume) {
-        storage[(int) index] = resume;
+    public void updateResume(Integer index, Resume resume) {
+        storage[index] = resume;
     }
 
-    public void saveResume(Object index, Resume resume) {
+    public void saveResume(Integer index, Resume resume) {
         if (STORAGE_LIMIT == size) {
             throw new StorageException("ERROR: storage is full", resume.getUuid());
         }
-        insertElement((int) index, resume);
+        insertElement(index, resume);
         size++;
     }
 
-    public void deleteResume(Object index) {
-        int intIndex = (int) index;
-        if (size - 1 - intIndex >= 0) {
-            System.arraycopy(storage, intIndex + 1, storage, intIndex, size - 1 - intIndex);
+    public void deleteResume(Integer index) {
+        if (size - 1 - index >= 0) {
+            System.arraycopy(storage, index + 1, storage, index, size - 1 - index);
             size--;
         }
     }
@@ -43,13 +42,13 @@ public abstract class AbstractArrayStorage extends AbstractStorage {
         return size;
     }
 
-    public Resume getResume(Object index) {
-        return storage[(int) index];
+    public Resume getResume(Integer index) {
+        return storage[index];
     }
 
     @Override
-    protected boolean isFound(Object index) {
-        return (int) index >= 0;
+    protected boolean isFound(Integer index) {
+        return index >= 0;
     }
 
     protected abstract void insertElement(int index, Resume resume);
