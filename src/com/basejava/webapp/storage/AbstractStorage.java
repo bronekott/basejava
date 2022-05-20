@@ -7,9 +7,10 @@ import com.basejava.webapp.model.Resume;
 import java.util.Arrays;
 import java.util.Collections;
 import java.util.List;
+import java.util.logging.Logger;
 
 public abstract class AbstractStorage<SK> implements Storage {
-
+    private static final Logger LOG  = Logger.getLogger(AbstractStorage.class.getName());
     protected abstract SK findSearchKey(String uuid);
 
     protected abstract void updateResume(SK searchKey, Resume resume);
@@ -24,29 +25,34 @@ public abstract class AbstractStorage<SK> implements Storage {
 
     @Override
     public void update(Resume resume) {
+        LOG.info("Update "+ resume);
         SK searchKey = findExistedSearchKey(resume.getUuid());
         updateResume(searchKey, resume);
     }
 
     @Override
     public void save(Resume resume) {
+        LOG.info("Save "+ resume);
         SK searchKey = findNotExistedSearchKey(resume.getUuid());
         saveResume(searchKey, resume);
     }
 
     @Override
     public Resume get(String uuid) {
+        LOG.info("Get "+ uuid);
         SK searchKey = findExistedSearchKey(uuid);
         return getResume(searchKey);
     }
 
     @Override
     public void delete(String uuid) {
+        LOG.info("Delete "+ uuid);
         SK searchKey = findExistedSearchKey(uuid);
         deleteResume(searchKey);
     }
 
     protected SK findExistedSearchKey(String uuid) {
+        LOG.info("Delete "+ uuid);
         SK searchKey = findSearchKey(uuid);
         if (!isFound(searchKey)) {
             throw new NotExistStorageException(uuid);
@@ -64,6 +70,7 @@ public abstract class AbstractStorage<SK> implements Storage {
 
     @Override
     public List<Resume> getAllSorted() {
+        LOG.info("getAllSorted");
         // https://www.baeldung.com/java-sorting#sorting-a-list
         List<Resume> list = Arrays.asList(getAll());
         Collections.sort(list);
