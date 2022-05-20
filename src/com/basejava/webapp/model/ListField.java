@@ -3,11 +3,11 @@ package com.basejava.webapp.model;
 import java.util.List;
 import java.util.Objects;
 
-public class ListField extends Field{
+public class ListField extends Field {
     private final List<String> fields;
 
-    public ListField(List<String> fields){
-        Objects.requireNonNull(fields,"fields must not be null");
+    public ListField(List<String> fields) {
+        Objects.requireNonNull(fields, "fields must not be null");
         this.fields = fields;
     }
 
@@ -32,6 +32,8 @@ public class ListField extends Field{
 
     @Override
     public int hashCode() {
-        return  fields.hashCode();
+        return fields.hashCode();
     }
 }
+
+
