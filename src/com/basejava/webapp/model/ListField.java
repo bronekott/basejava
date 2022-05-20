@@ -4,7 +4,7 @@ import java.util.List;
 import java.util.Objects;
 
 public class ListField extends Field{
-    private List<String> fields;
+    private final List<String> fields;
 
     public ListField(List<String> fields){
         Objects.requireNonNull(fields,"textField must not be null");
