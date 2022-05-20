@@ -1,9 +1,4 @@
-package com.basejava.webapp.storage;
-
-import com.basejava.webapp.model.ContactType;
-import com.basejava.webapp.model.ListField;
-import com.basejava.webapp.model.Resume;
-import com.basejava.webapp.model.SectionType;
+package com.basejava.webapp.model;
 
 import java.util.ArrayList;
 import java.util.List;
