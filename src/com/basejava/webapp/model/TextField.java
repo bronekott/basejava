@@ -6,7 +6,7 @@ public class TextField extends Field{
     private String textField;
 
     public TextField(String textField){
-        Objects.requireNonNull(textField,"textField must not be null");
+        Objects.requireNonNull(textField, "textField must not be null");
         this.textField = textField;
     }
 

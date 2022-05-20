@@ -3,11 +3,11 @@ package com.basejava.webapp.model;
 import java.util.List;
 import java.util.Objects;
 
-public class EventPointField extends Field{
+public class EventPointField extends Field {
     List<EventPoint> fields;
 
-    public EventPointField(List<EventPoint> fields){
-        Objects.requireNonNull(fields,"textField must not be null");
+    public EventPointField(List<EventPoint> fields) {
+        Objects.requireNonNull(fields, "textField must not be null");
         this.fields = fields;
     }
 
@@ -32,7 +32,7 @@ public class EventPointField extends Field{
 
     @Override
     public int hashCode() {
-        return  fields.hashCode();
+        return fields.hashCode();
     }
 
 
