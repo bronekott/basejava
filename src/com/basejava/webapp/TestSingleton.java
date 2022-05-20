@@ -1,5 +1,7 @@
 package com.basejava.webapp;
 
+import com.basejava.webapp.model.SectionType;
+
 public class TestSingleton {
     private static TestSingleton instance;
     public static TestSingleton getInstance(){
@@ -16,6 +18,10 @@ public class TestSingleton {
         TestSingleton.getInstance().toString();
         Singleton instance = Singleton.valueOf("INSTANCE");
         System.out.println(instance.ordinal());
+
+        for (SectionType type : SectionType.values()){
+            System.out.println(type.getTitle());
+        }
     }
 
     public enum Singleton{
