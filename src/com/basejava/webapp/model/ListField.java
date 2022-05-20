@@ -7,7 +7,7 @@ public class ListField extends Field{
     private final List<String> fields;
 
     public ListField(List<String> fields){
-        Objects.requireNonNull(fields,"textField must not be null");
+        Objects.requireNonNull(fields,"fields must not be null");
         this.fields = fields;
     }
 

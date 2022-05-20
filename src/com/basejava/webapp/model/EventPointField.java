@@ -7,7 +7,7 @@ public class EventPointField extends Field {
     private final List<EventPoint> fields;
 
     public EventPointField(List<EventPoint> fields) {
-        Objects.requireNonNull(fields, "textField must not be null");
+        Objects.requireNonNull(fields, "fields must not be null");
         this.fields = fields;
     }
 
