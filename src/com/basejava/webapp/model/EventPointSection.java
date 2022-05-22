@@ -3,10 +3,10 @@ package com.basejava.webapp.model;
 import java.util.List;
 import java.util.Objects;
 
-public class EventPointField extends Field {
+public class EventPointSection extends AbstractSection {
     private final List<EventPoint> fields;
 
-    public EventPointField(List<EventPoint> fields) {
+    public EventPointSection(List<EventPoint> fields) {
         Objects.requireNonNull(fields, "fields must not be null");
         this.fields = fields;
     }
@@ -25,7 +25,7 @@ public class EventPointField extends Field {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
 
-        EventPointField eventPointField = (EventPointField) o;
+        EventPointSection eventPointField = (EventPointSection) o;
 
         return Objects.equals(fields, eventPointField.fields);
     }

@@ -3,10 +3,10 @@ package com.basejava.webapp.model;
 import java.util.List;
 import java.util.Objects;
 
-public class ListField extends Field {
+public class ListSection extends AbstractSection {
     private final List<String> fields;
 
-    public ListField(List<String> fields) {
+    public ListSection(List<String> fields) {
         Objects.requireNonNull(fields, "fields must not be null");
         this.fields = fields;
     }
@@ -25,7 +25,7 @@ public class ListField extends Field {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
 
-        ListField listField = (ListField) o;
+        ListSection listField = (ListSection) o;
 
         return Objects.equals(fields, listField.fields);
     }

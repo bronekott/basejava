@@ -12,7 +12,7 @@ public class ResumeTestData {
         testList.add("Test3");
 
         resume.addContact(ContactType.PHONE_NUMBER, "89169097788");
-        resume.addSection(SectionType.ACHIEVEMENT, new ListField(testList));
+        resume.addSection(SectionType.ACHIEVEMENT, new ListSection(testList));
 
         for (String string : testList) {
             System.out.println(string);

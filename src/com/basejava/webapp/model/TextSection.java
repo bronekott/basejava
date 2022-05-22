@@ -2,10 +2,10 @@ package com.basejava.webapp.model;
 
 import java.util.Objects;
 
-public class TextField extends Field{
+public class TextSection extends AbstractSection {
     private String textField;
 
-    public TextField(String textField){
+    public TextSection(String textField){
         Objects.requireNonNull(textField, "textField must not be null");
         this.textField = textField;
     }
@@ -28,7 +28,7 @@ public class TextField extends Field{
         if (this == obj) return true;
         if (obj == null || getClass() != obj.getClass()) return false;
 
-        TextField tf = (TextField) obj;
+        TextSection tf = (TextSection) obj;
 
         return textField.equals(tf.textField);
     }

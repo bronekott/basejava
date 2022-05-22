@@ -11,7 +11,7 @@ public class Resume implements Comparable<Resume> {
     private final String uuid;
     private final String fullName;
     private final Map<ContactType, String> contactInfo = new HashMap<ContactType, String>();
-    private final Map<SectionType, Field> sections = new HashMap<SectionType, Field>();
+    private final Map<SectionType, AbstractSection> sections = new HashMap<SectionType, AbstractSection>();
 
     public Resume(String fullName) {
         this(UUID.randomUUID().toString(), fullName);
@@ -32,11 +32,11 @@ public class Resume implements Comparable<Resume> {
         return fullName;
     }
 
-    public Field getSection(SectionType st) {
+    public AbstractSection getSection(SectionType st) {
         return sections.get(st);
     }
 
-    public void addSection(SectionType st, Field info) {
+    public void addSection(SectionType st, AbstractSection info) {
         sections.put(st, info);
     }
 
