@@ -1,4 +1,4 @@
-<mxfile host="app.diagrams.net" modified="2022-05-22T07:50:02.941Z" agent="5.0 (Windows)" etag="SF2EWC4YysCamkSkM0oA" version="18.1.1" type="github">
+<mxfile host="app.diagrams.net" modified="2022-05-22T07:51:09.772Z" agent="5.0 (Windows)" etag="CuhNzTsQ58onE0uUegIr" version="18.1.1" type="github">
   <diagram id="fFNd2Jv2OOi4PG3JJ3dx" name="Page-1">
     <mxGraphModel dx="1422" dy="780" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="850" pageHeight="1100" math="0" shadow="0">
       <root>
@@ -9,7 +9,7 @@
             <mxRectangle x="60" y="50" width="80" height="26" as="alternateBounds" />
           </mxGeometry>
         </mxCell>
-        <mxCell id="at_urgfjE1kt4REhZvFI-3" value="- uuid String&#xa;- fullname String&#xa;- contactInfo HashMap&lt;ContactType, String&gt;&#xa;- sections HashMap&lt;SectionType, Field&gt;" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;" parent="at_urgfjE1kt4REhZvFI-2" vertex="1">
+        <mxCell id="at_urgfjE1kt4REhZvFI-3" value="- uuid String&#xa;- fullname String&#xa;- contactInfo HashMap&lt;ContactType, String&gt;&#xa;- sections HashMap&lt;SectionType, AbstractSection&gt;" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;" parent="at_urgfjE1kt4REhZvFI-2" vertex="1">
           <mxGeometry y="26" width="300" height="84" as="geometry" />
         </mxCell>
         <mxCell id="at_urgfjE1kt4REhZvFI-4" value="" style="line;strokeWidth=1;fillColor=none;align=left;verticalAlign=middle;spacingTop=-1;spacingLeft=3;spacingRight=3;rotatable=0;labelPosition=right;points=[];portConstraint=eastwest;" parent="at_urgfjE1kt4REhZvFI-2" vertex="1">
