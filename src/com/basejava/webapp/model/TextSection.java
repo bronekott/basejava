@@ -5,7 +5,7 @@ import java.util.Objects;
 public class TextSection extends AbstractSection {
     private String textField;
 
-    public TextSection(String textField){
+    public TextSection(String textField) {
         Objects.requireNonNull(textField, "textField must not be null");
         this.textField = textField;
     }
