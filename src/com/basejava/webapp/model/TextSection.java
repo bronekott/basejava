@@ -3,24 +3,24 @@ package com.basejava.webapp.model;
 import java.util.Objects;
 
 public class TextSection extends AbstractSection {
-    private String textField;
+    private String textNote;
 
-    public TextSection(String textField) {
-        Objects.requireNonNull(textField, "textField must not be null");
-        this.textField = textField;
+    public TextSection(String textNote) {
+        Objects.requireNonNull(textNote, "textField must not be null");
+        this.textNote = textNote;
     }
 
-    public String getTextField() {
-        return textField;
+    public String getTextNote() {
+        return textNote;
     }
 
-    public void setTextField(String textField) {
-        this.textField = textField;
+    public void setTextNote(String textNote) {
+        this.textNote = textNote;
     }
 
     @Override
     public String toString() {
-        return textField;
+        return textNote;
     }
 
     @Override
@@ -30,11 +30,11 @@ public class TextSection extends AbstractSection {
 
         TextSection tf = (TextSection) obj;
 
-        return textField.equals(tf.textField);
+        return textNote.equals(tf.textNote);
     }
 
     @Override
     public int hashCode() {
-        return textField.hashCode();
+        return textNote.hashCode();
     }
 }

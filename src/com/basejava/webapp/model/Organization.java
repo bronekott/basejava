@@ -3,15 +3,15 @@ package com.basejava.webapp.model;
 import java.util.List;
 import java.util.Objects;
 
-public class ListSection extends AbstractSection {
-    private final List<String> sections;
+public class Organization extends AbstractSection {
+    private final List<Position> sections;
 
-    public ListSection(List<String> sections) {
+    public Organization(List<Position> sections) {
         Objects.requireNonNull(sections, "fields must not be null");
         this.sections = sections;
     }
 
-    public List<String> getSections() {
+    public List<Position> getSections() {
         return sections;
     }
 
@@ -25,15 +25,15 @@ public class ListSection extends AbstractSection {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
 
-        ListSection listField = (ListSection) o;
+        Organization eventPointField = (Organization) o;
 
-        return Objects.equals(sections, listField.sections);
+        return Objects.equals(sections, eventPointField.sections);
     }
 
     @Override
     public int hashCode() {
         return sections.hashCode();
     }
+
+
 }
-
-

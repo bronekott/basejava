@@ -3,16 +3,16 @@ package com.basejava.webapp.model;
 import java.time.LocalDate;
 import java.util.Objects;
 
-public class EventPoint {
+public class Position {
     private String companyName;
     private LocalDate startDate;
     private LocalDate endDate;
     private String position;
     private String description;
 
-    public EventPoint(String companyName, LocalDate startTime, LocalDate endTime, String position, String description) {
-        Objects.requireNonNull(startDate, "startDate must not be null");
-        Objects.requireNonNull(endDate, "endDate must not be null");
+    public Position(String companyName, LocalDate startTime, LocalDate endTime, String position, String description) {
+        //Objects.requireNonNull(startDate, "startDate must not be null");
+        //Objects.requireNonNull(endDate, "endDate must not be null");
         Objects.requireNonNull(position, "position must not be null");
         Objects.requireNonNull(description, "description must not be null");
         this.companyName = companyName;
@@ -67,7 +67,7 @@ public class EventPoint {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
 
-        EventPoint that = (EventPoint) o;
+        Position that = (Position) o;
 
         if (!Objects.equals(companyName, that.companyName)) return false;
         if (!Objects.equals(startDate, that.startDate)) return false;
