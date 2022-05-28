@@ -3,6 +3,7 @@ package com.basejava.webapp.model;
 import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Map;
 
 public class ResumeTestData {
     public static void main(String[] args) {
@@ -25,15 +26,14 @@ public class ResumeTestData {
         ListSection listSection = (ListSection) resume.getSection(SectionType.ACHIEVEMENT);
         Organization organization = (Organization) resume.getSection(SectionType.EXPERIENCE);
 
-        for (String str : listSection.getSections()) {
-            System.out.println(str);
+        for (Map.Entry<SectionType, AbstractSection> entry : resume.getSections().entrySet()) {
+            System.out.println("Key : " + entry.getKey() + " Value : " + entry.getValue());
         }
 
-        for (Position pos : organization.getSections()) {
-            System.out.println(pos);
+        for (Map.Entry<ContactType, String> entry : resume.getContactInfo().entrySet()) {
+            System.out.println("Key : " + entry.getKey() + " Value : " + entry.getValue());
         }
 
-        System.out.println(resume.getContact(ContactType.PHONE_NUMBER));
 
     }
 }

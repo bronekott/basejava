@@ -10,8 +10,17 @@ public class Resume implements Comparable<Resume> {
     // Unique identifier
     private final String uuid;
     private final String fullName;
-    private final Map<ContactType, String> contactInfo = new HashMap<ContactType, String>();
-    private final Map<SectionType, AbstractSection> sections = new HashMap<SectionType, AbstractSection>();
+    private final Map<ContactType, String> contactInfo = new EnumMap<>(ContactType.class);
+
+    public Map<ContactType, String> getContactInfo() {
+        return contactInfo;
+    }
+
+    public Map<SectionType, AbstractSection> getSections() {
+        return sections;
+    }
+
+    private final Map<SectionType, AbstractSection> sections = new EnumMap<>(SectionType.class);
 
     public Resume(String fullName) {
         this(UUID.randomUUID().toString(), fullName);
@@ -60,15 +69,19 @@ public class Resume implements Comparable<Resume> {
 
         Resume resume = (Resume) o;
 
-        boolean equalsUuid = uuid.equals(resume.uuid);
-        boolean equalsFullName = fullName.equals(resume.fullName);
-
-        return equalsFullName && equalsUuid;
+        if (uuid != null ? !uuid.equals(resume.uuid) : resume.uuid != null) return false;
+        if (fullName != null ? !fullName.equals(resume.fullName) : resume.fullName != null) return false;
+        if (!contactInfo.equals(resume.contactInfo)) return false;
+        return sections.equals(resume.sections);
     }
 
     @Override
     public int hashCode() {
-        return uuid.hashCode();
+        int result = uuid != null ? uuid.hashCode() : 0;
+        result = 31 * result + (fullName != null ? fullName.hashCode() : 0);
+        result = 31 * result + contactInfo.hashCode();
+        result = 31 * result + sections.hashCode();
+        return result;
     }
 
     @Override
