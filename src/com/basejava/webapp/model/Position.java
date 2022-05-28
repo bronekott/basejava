@@ -13,8 +13,8 @@ public class Position {
     public Position(String companyName, LocalDate startTime, LocalDate endTime, String position, String description) {
         //Objects.requireNonNull(startDate, "startDate must not be null");
         //Objects.requireNonNull(endDate, "endDate must not be null");
-        Objects.requireNonNull(position, "position must not be null");
-        Objects.requireNonNull(description, "description must not be null");
+        //Objects.requireNonNull(position, "position must not be null");
+        //Objects.requireNonNull(description, "description must not be null");
         this.companyName = companyName;
         this.startDate = startTime;
         this.endDate = endTime;
