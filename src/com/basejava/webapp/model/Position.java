@@ -9,8 +9,9 @@ public class Position {
     private LocalDate endDate;
     private String position;
     private String description;
+    private String url;
 
-    public Position(String companyName, LocalDate startTime, LocalDate endTime, String position, String description) {
+    public Position(String companyName, LocalDate startTime, LocalDate endTime, String position, String description, String url) {
         //Objects.requireNonNull(startDate, "startDate must not be null");
         //Objects.requireNonNull(endDate, "endDate must not be null");
         //Objects.requireNonNull(position, "position must not be null");
@@ -20,46 +21,47 @@ public class Position {
         this.endDate = endTime;
         this.position = position;
         this.description = description;
-    }
-
-    public void setCompanyName(String companyName) {
-        this.companyName = companyName;
-    }
-
-    public void setStartDate(LocalDate startDate) {
-        this.startDate = startDate;
-    }
-
-    public void setEndDate(LocalDate endDate) {
-        this.endDate = endDate;
-    }
-
-    public void setPosition(String position) {
-        this.position = position;
-    }
-
-    public void setDescription(String description) {
-        this.description = description;
+        this.url = url;
     }
 
     public String getCompanyName() {
         return companyName;
     }
-
+    public void setCompanyName(String companyName) {
+        this.companyName = companyName;
+    }
     public LocalDate getStartDate() {
         return startDate;
     }
-
+    public void setStartDate(LocalDate startDate) {
+        this.startDate = startDate;
+    }
     public LocalDate getEndDate() {
         return endDate;
     }
-
+    public void setEndDate(LocalDate endDate) {
+        this.endDate = endDate;
+    }
     public String getPosition() {
         return position;
+    }
+    public void setPosition(String position) {
+        this.position = position;
     }
 
     public String getDescription() {
         return description;
+    }
+    public void setDescription(String description) {
+        this.description = description;
+    }
+
+    public String getURL() {
+        return url;
+    }
+
+    public void setURL(String url) {
+        this.url = url;
     }
 
     @Override
