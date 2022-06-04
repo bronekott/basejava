@@ -17,12 +17,12 @@ public class ResumeTestData {
         List<String> testQualification = new ArrayList<>();
         testAchievement.add("testQualification1");
 
-        List<Position> testExperience = new ArrayList<>();
-        testExperience.add(new Position("Test Company Name", LocalDate.of(2020, 5, 25), LocalDate.of(2021, 5, 25), "Software Developer", "Description of main duties", "www.url.co"));
-        testExperience.add(new Position("Another Test Company Name", LocalDate.of(2021, 5, 26), LocalDate.of(2022, 5, 25), "Senior Software Developer", "Another description of main duties", "www.url.co"));
+        List<Organization> testExperience = new ArrayList<>();
+        testExperience.add(new Organization("Test Company Name", "www.url.co", LocalDate.of(2020, 5, 25), LocalDate.of(2021, 5, 25), "Software Developer", "Description of main duties"));
+        testExperience.add(new Organization("Another Test Company Name", "www.url.co", LocalDate.of(2021, 5, 26), LocalDate.of(2022, 5, 25), "Senior Software Developer", "Another description of main duties"));
 
-        List<Position> testEducation = new ArrayList<>();
-        testEducation.add(new Position("Yale University", LocalDate.of(2010, 9, 15), LocalDate.of(2014, 6, 25), "Some degree", null, "www.url.co"));
+        List<Organization> testEducation = new ArrayList<>();
+        testEducation.add(new Organization("Yale University", "www.url.co", LocalDate.of(2010, 9, 15), LocalDate.of(2014, 6, 25), "Some degree", null));
 
 
         resume.addContact(ContactType.PHONE_NUMBER, "89169097788");
@@ -39,8 +39,8 @@ public class ResumeTestData {
         resume.addSection(SectionType.ACHIEVEMENT, new ListSection(testAchievement));
         resume.addSection(SectionType.QUALIFICATION, new ListSection(testQualification));
 
-        resume.addSection(SectionType.EXPERIENCE, new Organization(testExperience));
-        resume.addSection(SectionType.EDUCATION, new Organization(testEducation));
+        resume.addSection(SectionType.EXPERIENCE, new OrganizationSection(testExperience));
+        resume.addSection(SectionType.EDUCATION, new OrganizationSection(testEducation));
 
 
         for (Map.Entry<SectionType, AbstractSection> entry : resume.getSections().entrySet()) {
