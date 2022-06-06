@@ -25,5 +25,21 @@ public class MainFile {
         } catch (IOException e) {
             throw new RuntimeException("Error", e);
         }
+
+        scanPrintDirectory(dir);
+    }
+    public static void scanPrintDirectory(File directory) {
+        File[] files = directory.listFiles();
+
+        if (files != null) {
+            for (File file : files) {
+                if (file.isDirectory()) {
+                    System.out.println("Directory: " + file.getName());
+                    scanPrintDirectory(file);
+                } else {
+                    System.out.println("File: " + file.getName());
+                }
+            }
+        }
     }
 }
