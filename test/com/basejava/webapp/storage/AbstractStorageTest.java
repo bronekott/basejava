@@ -3,6 +3,7 @@ package com.basejava.webapp.storage;
 import com.basejava.webapp.exception.ExistStorageException;
 import com.basejava.webapp.exception.NotExistStorageException;
 import com.basejava.webapp.model.Resume;
+import com.basejava.webapp.model.ResumeTestData;
 import org.junit.Before;
 import org.junit.Test;
 
@@ -19,10 +20,14 @@ public abstract class AbstractStorageTest {
     private static final String UUID_3 = "uuid3";
     private static final String UUID_4 = "uuid4";
 
-    private static final Resume RESUME_1 = new Resume(UUID_1, "name1");
-    private static final Resume RESUME_2 = new Resume(UUID_2, "name2");
-    private static final Resume RESUME_3 = new Resume(UUID_3, "name3");
-    private static final Resume RESUME_4 = new Resume(UUID_4, "name4");
+    //private static final Resume RESUME_1 = new Resume(UUID_1, "name1");
+    //private static final Resume RESUME_2 = new Resume(UUID_2, "name2");
+    //private static final Resume RESUME_3 = new Resume(UUID_3, "name3");
+    //private static final Resume RESUME_4 = new Resume(UUID_4, "name4");
+    private static final Resume RESUME_1 = ResumeTestData.createTestResume(UUID_1, "name1");
+    private static final Resume RESUME_2 = ResumeTestData.createTestResume(UUID_2, "name2");
+    private static final Resume RESUME_3 = ResumeTestData.createTestResume(UUID_3, "name3");
+    private static final Resume RESUME_4 = ResumeTestData.createTestResume(UUID_4, "name4");
 
     private List<Resume> expectedResumes = new ArrayList<Resume>() {{
         add(RESUME_1);

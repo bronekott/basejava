@@ -10,7 +10,7 @@ public class MainFile {
         try {
             System.out.println(file.getCanonicalFile());
         } catch (IOException e) {
-            throw new RuntimeException("Erroe", e);
+            throw new RuntimeException("Error", e);
         }
         File dir = new File("./src/com/basejava/webapp");
         System.out.println(dir.isDirectory());
@@ -28,18 +28,20 @@ public class MainFile {
 
         scanPrintDirectory(dir);
     }
-    public static void scanPrintDirectory(File directory) {
-        File[] files = directory.listFiles();
 
-        if (files != null) {
-            for (File file : files) {
+    public static void scanPrintDirectory(File directory) {
+        //File directory = new File(path);
+        String[] list = directory.list();
+        if (list != null) {
+            for (File file : directory.listFiles()) {
                 if (file.isDirectory()) {
-                    System.out.println("Directory: " + file.getName());
+                    System.out.println("+++Directory name: " + file.getName());
                     scanPrintDirectory(file);
                 } else {
-                    System.out.println("File: " + file.getName());
+                    System.out.println(file.getName());
                 }
             }
         }
+
     }
 }

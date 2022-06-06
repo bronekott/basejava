@@ -4,20 +4,20 @@ import java.util.List;
 import java.util.Objects;
 
 public class OrganizationSection extends AbstractSection {
-    private final List<Organization> sections;
+    private final List<Organization> organizations;
 
     public OrganizationSection(List<Organization> sections) {
         Objects.requireNonNull(sections, "fields must not be null");
-        this.sections = sections;
+        this.organizations = sections;
     }
 
     public List<Organization> getSections() {
-        return sections;
+        return organizations;
     }
 
     @Override
     public String toString() {
-        return sections.toString();
+        return organizations.toString();
     }
 
     @Override
@@ -27,13 +27,12 @@ public class OrganizationSection extends AbstractSection {
 
         OrganizationSection eventPointField = (OrganizationSection) o;
 
-        return Objects.equals(sections, eventPointField.sections);
+        return Objects.equals(organizations, eventPointField.organizations);
     }
 
     @Override
     public int hashCode() {
-        return sections.hashCode();
+        return organizations.hashCode();
     }
-
 
 }

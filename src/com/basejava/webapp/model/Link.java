@@ -22,7 +22,10 @@ public class Link {
 
     @Override
     public String toString() {
-        return "Link(" + name + ',' + url + ')';
+        return "Link{" +
+                "name='" + name + '\'' +
+                ", url='" + url + '\'' +
+                '}';
     }
 
     @Override
@@ -33,13 +36,13 @@ public class Link {
         Link link = (Link) o;
 
         if (!name.equals(link.name)) return false;
-        return Objects.equals(url, link.url);
+        return url.equals(link.url);
     }
 
     @Override
     public int hashCode() {
         int result = name.hashCode();
-        result = 31 * result + (url != null ? url.hashCode() : 0);
+        result = 31 * result + url.hashCode();
         return result;
     }
 }
