@@ -3,19 +3,20 @@ package com.basejava.webapp.model;
 import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Map;
 
 public class ResumeTestData {
-//    public static void main(String[] args) {
-//        //Resume resume = createTestResume("uuid100", "Alex");
-//
-//        for (Map.Entry<SectionType, AbstractSection> entry : resume.getSections().entrySet()) {
-//            System.out.println("Key : " + entry.getKey() + " Value : " + entry.getValue());
-//        }
-//
-//        for (Map.Entry<ContactType, String> entry : resume.getContactInfo().entrySet()) {
-//            System.out.println("Key : " + entry.getKey() + " Value : " + entry.getValue());
-//        }
-//    }
+    public static void main(String[] args) {
+        Resume resume = createTestResume("uuid100", "Alex");
+
+        for (Map.Entry<SectionType, AbstractSection> entry : resume.getSections().entrySet()) {
+            System.out.println("Key : " + entry.getKey() + " Value : " + entry.getValue());
+        }
+
+        for (Map.Entry<ContactType, String> entry : resume.getContactInfo().entrySet()) {
+            System.out.println("Key : " + entry.getKey() + " Value : " + entry.getValue());
+        }
+    }
 
     public static Resume createTestResume(String uuid, String fullName) {
         Resume resume = new Resume(uuid, fullName);

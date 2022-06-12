@@ -3,6 +3,7 @@ package com.basejava.webapp;
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.IOException;
+import java.util.Objects;
 
 public class MainFile {
     public static void main(String[] args) throws IOException {
@@ -16,7 +17,7 @@ public class MainFile {
         System.out.println(dir.isDirectory());
         String[] list = dir.list();
         if (list != null) {
-            for (String name : dir.list()) {
+            for (String name : Objects.requireNonNull(dir.list())) {
                 System.out.println(name);
             }
         }
@@ -33,7 +34,7 @@ public class MainFile {
         //File directory = new File(path);
         String[] list = directory.list();
         if (list != null) {
-            for (File file : directory.listFiles()) {
+            for (File file : Objects.requireNonNull(directory.listFiles())) {
                 if (file.isDirectory()) {
                     System.out.println("+++Directory name: " + file.getName());
                     scanPrintDirectory(file);

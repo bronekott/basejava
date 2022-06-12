@@ -24,7 +24,7 @@ public class MapStorage extends AbstractStorage<String> {
 
     @Override
     protected Resume getResume(String key) {
-        return storage.get( key);
+        return storage.get(key);
     }
 
     @Override
