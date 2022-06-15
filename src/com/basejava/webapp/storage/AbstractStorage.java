@@ -12,6 +12,8 @@ import java.util.logging.Logger;
 public abstract class AbstractStorage<SK> implements Storage {
     private static final Logger LOG = Logger.getLogger(AbstractStorage.class.getName());
 
+    private static final Comparator<Resume> RESUME_COMPARATOR = Comparator.comparing(Resume::getUuid);
+
     protected abstract SK findSearchKey(String uuid);
 
     protected abstract void updateResume(SK searchKey, Resume resume);
@@ -62,8 +64,6 @@ public abstract class AbstractStorage<SK> implements Storage {
         list.sort(RESUME_COMPARATOR);
         return list;
     }
-
-    private static final Comparator<Resume> RESUME_COMPARATOR = Comparator.comparing(Resume::getUuid);
 
     private SK findExistedSearchKey(String uuid) {
         LOG.info("Delete " + uuid);
