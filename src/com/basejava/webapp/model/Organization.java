@@ -82,4 +82,11 @@ public class Organization {
         }
     }
 
+    @Override
+    public String toString() {
+        return "Organization{" +
+                "homepage=" + homepage +
+                ", positions=" + positions +
+                '}';
+    }
 }

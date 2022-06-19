@@ -10,7 +10,8 @@ public class ResumeTestData {
         Resume resume = createTestResume("uuid100", "Alex");
 
         for (Map.Entry<SectionType, AbstractSection> entry : resume.getSections().entrySet()) {
-            System.out.println("Key : " + entry.getKey() + " Value : " + entry.getValue());
+            System.out.println("Key : " + entry.getKey() + " Value : " + entry.getValue().toString());
+
         }
 
         for (Map.Entry<ContactType, String> entry : resume.getContactInfo().entrySet()) {
@@ -27,7 +28,7 @@ public class ResumeTestData {
         testAchievement.add("testAchievement3");
 
         List<String> testQualification = new ArrayList<>();
-        testAchievement.add("testQualification1");
+        testQualification.add("testQualification1");
 
 
         //first company Positions
@@ -37,7 +38,7 @@ public class ResumeTestData {
 
         //second company Positions
         List<Organization.Position> testExperienceCompanyTwo = new ArrayList<>();
-        testExperienceCompanyOne.add(new Organization.Position(LocalDate.of(2022, 5, 25), LocalDate.now(), "Team Lead", "Description of team lead role"));
+        testExperienceCompanyTwo.add(new Organization.Position(LocalDate.of(2022, 5, 25), LocalDate.now(), "Team Lead", "Description of team lead role"));
 
         //Education positions
         List<Organization.Position> testEducationPositions = new ArrayList<>();
@@ -70,5 +71,10 @@ public class ResumeTestData {
         resume.addSection(SectionType.EDUCATION, new OrganizationSection(testEducation));
 
         return resume;
+    }
+
+    @Override
+    public String toString() {
+        return super.toString();
     }
 }

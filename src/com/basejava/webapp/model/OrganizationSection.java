@@ -17,7 +17,9 @@ public class OrganizationSection extends AbstractSection {
 
     @Override
     public String toString() {
-        return organizations.toString();
+        return "OrganizationSection{" +
+                "organizations=" + organizations +
+                '}';
     }
 
     @Override
