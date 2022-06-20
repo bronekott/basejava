@@ -4,7 +4,6 @@ import com.basejava.webapp.exception.ExistStorageException;
 import com.basejava.webapp.exception.NotExistStorageException;
 import com.basejava.webapp.model.Resume;
 
-import java.util.Arrays;
 import java.util.Comparator;
 import java.util.List;
 import java.util.logging.Logger;
@@ -24,6 +23,7 @@ public abstract class AbstractStorage<SK> implements Storage {
     protected abstract void deleteResume(SK searchKey);
 
     protected abstract boolean isFound(SK searchKey);
+    protected abstract List<Resume> getAll();
 
     @Override
     public void update(Resume resume) {
@@ -58,7 +58,7 @@ public abstract class AbstractStorage<SK> implements Storage {
     public List<Resume> getAllSorted() {
         LOG.info("getAllSorted");
         // https://www.baeldung.com/java-sorting#sorting-a-list
-        List<Resume> list = Arrays.asList(getAll());
+        List<Resume> list = getAll();
         //Collections.sort(list);
         list.sort(RESUME_COMPARATOR);
         return list;

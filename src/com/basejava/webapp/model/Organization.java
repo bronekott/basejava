@@ -1,9 +1,11 @@
 package com.basejava.webapp.model;
 
+import java.io.Serializable;
 import java.time.LocalDate;
 import java.util.List;
 
-public class Organization {
+public class Organization implements Serializable {
+    private static final long serialVersionUID = 1L;
     private final Link homepage;
     private final List<Position> positions;
 
@@ -16,7 +18,7 @@ public class Organization {
         return positions;
     }
 
-    public static class Position {
+    public static class Position implements Serializable {
         private final LocalDate startDate;
         private final LocalDate endDate;
         private final String position;

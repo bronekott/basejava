@@ -2,7 +2,9 @@ package com.basejava.webapp.storage;
 
 import com.basejava.webapp.model.Resume;
 
+import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 public class MapStorageSecond extends AbstractStorage<Resume> {
@@ -46,9 +48,8 @@ public class MapStorageSecond extends AbstractStorage<Resume> {
         storage.clear();
     }
 
-    @Override
-    public Resume[] getAll() {
-        return storage.values().toArray(new Resume[storage.size()]);
+    public List<Resume> getAll() {
+        return new ArrayList<>(storage.values());
     }
 
     @Override
