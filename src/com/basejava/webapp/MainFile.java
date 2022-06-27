@@ -36,10 +36,10 @@ public class MainFile {
         if (list != null) {
             for (File file : Objects.requireNonNull(directory.listFiles())) {
                 if (file.isDirectory()) {
-                    System.out.println("+++Directory name: " + file.getName());
+                    System.out.println("+Directory name: " + file.getName());
                     scanPrintDirectory(file);
                 } else {
-                    System.out.println(file.getName());
+                    System.out.println(" - " + file.getName());
                 }
             }
         }
