@@ -38,7 +38,7 @@ public class MainFile {
                 if (file.isDirectory()) {
                     System.out.println("+Directory name: " + file.getName());
                     scanPrintDirectory(file);
-                } else {
+                } else if (file.isFile()){
                     System.out.println(" - " + file.getName());
                 }
             }

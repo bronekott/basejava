@@ -70,18 +70,14 @@ public class Resume implements Comparable<Resume>, Serializable {
 
         Resume resume = (Resume) o;
 
-        if (uuid != null ? !uuid.equals(resume.uuid) : resume.uuid != null) return false;
-        if (fullName != null ? !fullName.equals(resume.fullName) : resume.fullName != null) return false;
-        if (!contactInfo.equals(resume.contactInfo)) return false;
-        return sections.equals(resume.sections);
+        if (!uuid.equals(resume.uuid)) return false;
+        return fullName.equals(resume.fullName);
     }
 
     @Override
     public int hashCode() {
-        int result = uuid != null ? uuid.hashCode() : 0;
-        result = 31 * result + (fullName != null ? fullName.hashCode() : 0);
-        result = 31 * result + contactInfo.hashCode();
-        result = 31 * result + sections.hashCode();
+        int result = uuid.hashCode();
+        result = 31 * result + fullName.hashCode();
         return result;
     }
 
